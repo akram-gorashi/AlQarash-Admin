@@ -1,0 +1,86 @@
+.upload-btn-wrapper {
+   position: relative;
+   left: 0;
+   float: left;
+   overflow: hidden;
+   border-radius: 3px;
+   margin-top: 1em;
+ }
+ 
+ .upload-btn-wrapper input {
+   padding: 20px;
+ }
+ 
+ .upload-btn {
+   border: 1px solid gray;
+   color: rgb(85, 85, 85);
+   background-color: transparent;
+   padding: 8px 20px;
+   border-radius: 3px;
+   font-size: 15px;
+ }
+ 
+ .upload-btn-icon {
+   display: inline-flex;
+   vertical-align: top;
+   font-size: 25px;
+   margin-right: 5px;
+   line-height:33px;
+   color: rgb(70, 70, 70);
+ }
+ 
+ .upload-btn-wrapper input[type=file] {
+   font-size: 20px;
+   position: absolute;
+   left: 0;
+   top: 0;
+   opacity: 0;
+ }
+ 
+ .attachments-drop-zone {
+   border: dotted 2px lightgray;
+   height: 100px;
+   display: flex;
+   flex-direction: column;
+   margin: 1em 0;
+   padding: 2em 0 8em 0;
+ }
+ 
+ .drag-text {
+   color: #545454;
+ }
+ 
+ .nv-file-over { 
+   border: dotted 2px rgb(31, 136, 255); 
+ }
+ 
+ .ant-upload-drag-icon {
+   font-size: 50px;
+   text-align: center;
+   color: rgb(31, 136, 255);
+   margin: auto;
+ }
+ 
+
+ ng-select > div > div.single > div.toggle {
+   color: white !important;
+   background: none;
+}
+
+ng-select > div {
+   border:none !important
+}
+
+ng-select > div > div.single > div.placeholder {
+   color: white;
+   font-size: 35px;
+   font-family: MontserratRegular; 
+}
+
+ng-select > div > div.single > div.clear:hover, ng-select > div > div.single > div.toggle:hover {
+   background-color: #4389a9;
+}
+
+select-dropdown {
+   display: none;
+}

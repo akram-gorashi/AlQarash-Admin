@@ -1,0 +1,194 @@
+<div class="container jumbotron">
+   <form enctype="multipart/form-data" [formGroup]="vehicleCreationFormGroup" #vehicleCreationForm
+      tourAnchor="Step-C-03-TicketCreationForm" class="ticket-creation-form">
+      <div class="row">
+         <div class="col">
+            <div class="form-group">
+               <label>Make</label>
+               <!-- <ng-select class="form-control" [items]="masterTableData.make" bindLabel="name" bindValue="nameAr"
+                  formControlName="make">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="make">
+
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="form-group">
+               <label>Mileage</label>
+               <div class="input-group">
+                  <input type="text" class="form-control" formControlName="mileage">
+               </div>
+            </div>
+
+         </div>
+         <div class="col">
+            <div class="form-group">
+               <label>Color</label>
+              <!--  <ng-select class="form-control" [items]="masterTableData.color" bindLabel="name" bindValue="nameAr"
+                  formControlName="color">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="color">
+
+            </div>
+         </div>
+      </div>
+
+
+      <div class="row">
+         <div class="col">
+            <div class="form-group">
+               <label>Condition</label>
+              <!--  <ng-select class="form-control" [items]="masterTableData.condition" bindLabel="name" bindValue="nameAr"
+                  formControlName="condition">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="condition">
+
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="form-group">
+               <label>Model</label>
+               <!-- <ng-select class="form-control" [items]="masterTableData.model" bindLabel="name" bindValue="nameAr"
+                  formControlName="model">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="model">
+
+            </div>
+         </div>
+         <div class="col">
+            <div class="form-group">
+               <label>Year</label>
+               <input type="number" class="form-control" formControlName="year">
+
+            </div>
+
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col">
+            <div class="form-group">
+               <label>Fuel</label>
+              <!--  <ng-select class="form-control" [items]="masterTableData.fuel" bindLabel="name" bindValue="nameAr"
+                  formControlName="fuel">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="fuel">
+
+            </div>
+         </div>
+
+         <div class="col">
+
+            <div class="form-group">
+               <label>Transmission</label>
+               <!-- <ng-select class="form-control" [items]="masterTableData.transmission" bindLabel="name" bindValue="nameAr"
+                  formControlName="transmission">
+               </ng-select> -->
+               <input type="text" class="form-control" formControlName="transmission">
+
+            </div>
+         </div>
+         <div class="col">
+            <div class="form-group">
+               <label>Price</label>
+               <div class="input-group">
+                  <input type="text" class="form-control" formControlName="price">
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col">
+            <div class="form-group">
+               <label>Agent Name</label>
+               <div class="input-group">
+                  <input type="text" class="form-control" formControlName="agentName">
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="form-group">
+               <label>Agent Phone Number</label>
+               <div class="input-group">
+                  <input type="text" class="form-control" formControlName="agentPhoneNumber">
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="form-group">
+               <label>Agent Location</label>
+               <div class="input-group">
+                  <input type="text" class="form-control" formControlName="agentLocation">
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="form-group">
+         <label>Description</label>
+         <div class="input-group">
+            <textarea type="text" class="form-control" formControlName="description"></textarea>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col">
+            <div class="upload-btn-wrapper">
+               <button class="btn btn-primary btn-lg">
+                  Upload Files
+               </button>
+               <input name="vehicleImages" type="file" ng2FileSelect [uploader]="uploader" #file multiple />
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col">
+            <div ng2FileDrop [uploader]="uploader" (fileOver)="fileOverBase($event)"
+               [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" class="attachments-drop-zone">
+               <!-- <i nz-icon nzType="cloud-upload" class="ant-upload-drag-icon"></i> -->
+               <h4 class="text-center text-success">You can also drag and drop your files here</h4>
+            </div>
+         </div>
+      </div>
+
+      <div *ngIf="uploader?.queue?.length > 0" class="row">
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Action</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of uploader.queue">
+                  <td>{{ item?.file?.type }}</td>
+                  <td>{{ item?.file?.name }}</td>
+                  <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td><a href="javascript:void(0)" (click)="item.remove()">
+                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        Delete
+                     </a></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg mb-4" (click)="createVehicle()">Save</button>
+
+      <div class="alert alert-dismissible alert-success" *ngIf="showSuccessAlert">
+         <strong>Well done!</strong> Your Vehicle has been created successfully 
+       </div>
+
+       <div class="alert alert-dismissible alert-danger" *ngIf="showErrorMeassageAlert">
+         <strong>Opps!</strong> Your Vehicle has not been created: {{errorMessage}}
+       </div>
+   </form>
+</div>

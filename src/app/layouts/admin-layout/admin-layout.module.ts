@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
@@ -16,13 +16,17 @@ import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VehiclesComponent } from 'app/pages/vehicles/vehicles.component';
+import { CreateVehicleComponent } from 'app/pages/create-vehicle/create-vehicle.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    ReactiveFormsModule,
+    NgbModule,
+    FileUploadModule
   ],
   declarations: [
     DashboardComponent,
@@ -33,7 +37,8 @@ import { VehiclesComponent } from 'app/pages/vehicles/vehicles.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    VehiclesComponent
+    VehiclesComponent,
+    CreateVehicleComponent
   ]
 })
 
